@@ -1,74 +1,97 @@
-import React from "react";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import Icon from "@material-ui/core/Icon";
-import Paper from "@material-ui/core/Paper";
-import TablePagination from "@material-ui/core/TablePagination";
-import * as MComponents from "./components";
-import PropTypes from "prop-types";
-import { fade } from "@material-ui/core/styles/colorManipulator";
+"use strict";
 
-const OverlayLoading = (props) => (
-  <div
-    style={{
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.defaultProps = void 0;
+
+var _objectSpread2 = _interopRequireDefault(require("@babel/runtime/helpers/objectSpread"));
+
+var _extends2 = _interopRequireDefault(require("@babel/runtime/helpers/extends"));
+
+var _react = _interopRequireDefault(require("react"));
+
+var _CircularProgress = _interopRequireDefault(require("@material-ui/core/CircularProgress"));
+
+var _Icon = _interopRequireDefault(require("@material-ui/core/Icon"));
+
+var _Paper = _interopRequireDefault(require("@material-ui/core/Paper"));
+
+var _TablePagination = _interopRequireDefault(require("@material-ui/core/TablePagination"));
+
+var MComponents = _interopRequireWildcard(require("./components"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _colorManipulator = require("@material-ui/core/styles/colorManipulator");
+
+var OverlayLoading = function OverlayLoading(props) {
+  return /*#__PURE__*/_react["default"].createElement("div", {
+    style: {
       display: "table",
       width: "100%",
       height: "100%",
-      backgroundColor: fade(props.theme.palette.background.paper, 0.7),
-    }}
-  >
-    <div
-      style={{
-        display: "table-cell",
-        width: "100%",
-        height: "100%",
-        verticalAlign: "middle",
-        textAlign: "center",
-      }}
-    >
-      <CircularProgress />
-    </div>
-  </div>
-);
+      backgroundColor: (0, _colorManipulator.fade)(props.theme.palette.background.paper, 0.7)
+    }
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    style: {
+      display: "table-cell",
+      width: "100%",
+      height: "100%",
+      verticalAlign: "middle",
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/_react["default"].createElement(_CircularProgress["default"], null)));
+};
+
 OverlayLoading.propTypes = {
-  theme: PropTypes.any,
+  theme: _propTypes["default"].any
 };
 
-const OverlayError = (props) => (
-  <div
-    style={{
+var OverlayError = function OverlayError(props) {
+  return /*#__PURE__*/_react["default"].createElement("div", {
+    style: {
       display: "table",
       width: "100%",
       height: "100%",
-      backgroundColor: fade(props.theme.palette.background.paper, 0.7),
-    }}
-  >
-    <div
-      style={{
-        display: "table-cell",
-        width: "100%",
-        height: "100%",
-        verticalAlign: "middle",
-        textAlign: "center",
-      }}
-    >
-      <span>{props.error.message}</span>{" "}
-      <props.icon
-        onClick={props.retry}
-        style={{ cursor: "pointer", position: "relative", top: 5 }}
-      />
-    </div>
-  </div>
-);
-OverlayError.propTypes = {
-  error: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  retry: PropTypes.func,
-  theme: PropTypes.any,
-  icon: PropTypes.any,
+      backgroundColor: (0, _colorManipulator.fade)(props.theme.palette.background.paper, 0.7)
+    }
+  }, /*#__PURE__*/_react["default"].createElement("div", {
+    style: {
+      display: "table-cell",
+      width: "100%",
+      height: "100%",
+      verticalAlign: "middle",
+      textAlign: "center"
+    }
+  }, /*#__PURE__*/_react["default"].createElement("span", null, props.error.message), " ", /*#__PURE__*/_react["default"].createElement(props.icon, {
+    onClick: props.retry,
+    style: {
+      cursor: "pointer",
+      position: "relative",
+      top: 5
+    }
+  })));
 };
 
-const Container = (props) => <Paper elevation={2} {...props} />;
+OverlayError.propTypes = {
+  error: _propTypes["default"].oneOfType([_propTypes["default"].object, _propTypes["default"].string]),
+  retry: _propTypes["default"].func,
+  theme: _propTypes["default"].any,
+  icon: _propTypes["default"].any
+};
 
-export const defaultProps = {
+var Container = function Container(props) {
+  return /*#__PURE__*/_react["default"].createElement(_Paper["default"], (0, _extends2["default"])({
+    elevation: 2
+  }, props));
+};
+
+var defaultProps = {
   actions: [],
   classes: {},
   columns: [],
@@ -87,113 +110,113 @@ export const defaultProps = {
     Header: MComponents.MTableHeader,
     OverlayLoading: OverlayLoading,
     OverlayError: OverlayError,
-    Pagination: TablePagination,
+    Pagination: _TablePagination["default"],
     Row: MComponents.MTableBodyRow,
-    Toolbar: MComponents.MTableToolbar,
+    Toolbar: MComponents.MTableToolbar
   },
   data: [],
   icons: {
     /* eslint-disable react/display-name */
-    Add: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        add_box
-      </Icon>
-    )),
-    Check: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        check
-      </Icon>
-    )),
-    Clear: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        clear
-      </Icon>
-    )),
-    Delete: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        delete_outline
-      </Icon>
-    )),
-    DetailPanel: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        chevron_right
-      </Icon>
-    )),
-    Edit: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        edit
-      </Icon>
-    )),
-    Export: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        save_alt
-      </Icon>
-    )),
-    Filter: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        filter_list
-      </Icon>
-    )),
-    FirstPage: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        first_page
-      </Icon>
-    )),
-    LastPage: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        last_page
-      </Icon>
-    )),
-    NextPage: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        chevron_right
-      </Icon>
-    )),
-    PreviousPage: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        chevron_left
-      </Icon>
-    )),
-    ResetSearch: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        clear
-      </Icon>
-    )),
-    Resize: React.forwardRef((props, ref) => (
-      <Icon
-        {...props}
-        ref={ref}
-        style={{ ...props.style, transform: "rotate(90deg)" }}
-      >
-        drag_handle
-      </Icon>
-    )),
-    Search: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        search
-      </Icon>
-    )),
-    SortArrow: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        arrow_downward
-      </Icon>
-    )),
-    ThirdStateCheck: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        remove
-      </Icon>
-    )),
-    ViewColumn: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        view_column
-      </Icon>
-    )),
-    Retry: React.forwardRef((props, ref) => (
-      <Icon {...props} ref={ref}>
-        replay
-      </Icon>
-    )),
+    Add: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "add_box");
+    }),
+    Check: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "check");
+    }),
+    Clear: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "clear");
+    }),
+    Delete: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "delete_outline");
+    }),
+    DetailPanel: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "chevron_right");
+    }),
+    Edit: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "edit");
+    }),
+    Export: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "save_alt");
+    }),
+    Filter: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "filter_list");
+    }),
+    FirstPage: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "first_page");
+    }),
+    LastPage: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "last_page");
+    }),
+    NextPage: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "chevron_right");
+    }),
+    PreviousPage: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "chevron_left");
+    }),
+    ResetSearch: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "clear");
+    }),
+    Resize: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref,
+        style: (0, _objectSpread2["default"])({}, props.style, {
+          transform: "rotate(90deg)"
+        })
+      }), "drag_handle");
+    }),
+    Search: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "search");
+    }),
+    SortArrow: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "arrow_downward");
+    }),
+    ThirdStateCheck: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "remove");
+    }),
+    ViewColumn: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "view_column");
+    }),
+    Retry: _react["default"].forwardRef(function (props, ref) {
+      return /*#__PURE__*/_react["default"].createElement(_Icon["default"], (0, _extends2["default"])({}, props, {
+        ref: ref
+      }), "replay");
+    })
     /* eslint-enable react/display-name */
+
   },
   isLoading: false,
   title: "Table Title",
@@ -239,18 +262,18 @@ export const defaultProps = {
     defaultExpanded: false,
     detailPanelColumnAlignment: "left",
     thirdSortClick: true,
-    overflowY: "auto",
+    overflowY: "auto"
   },
   localization: {
     error: "Data could not be retrieved",
     grouping: {
       groupedBy: "Grouped By:",
-      placeholder: "Drag headers here to group by",
+      placeholder: "Drag headers here to group by"
     },
     pagination: {
       labelDisplayedRows: "{from}-{to} of {count}",
       labelRowsPerPage: "Rows per page:",
-      labelRowsSelect: "rows",
+      labelRowsSelect: "rows"
     },
     toolbar: {},
     header: {},
@@ -259,15 +282,16 @@ export const defaultProps = {
       editRow: {
         saveTooltip: "Save",
         cancelTooltip: "Cancel",
-        deleteText: "Are you sure you want to delete this row?",
+        deleteText: "Are you sure you want to delete this row?"
       },
       addTooltip: "Add",
       deleteTooltip: "Delete",
       editTooltip: "Edit",
       bulkEditTooltip: "Edit All",
       bulkEditApprove: "Save all changes",
-      bulkEditCancel: "Discard all changes",
-    },
+      bulkEditCancel: "Discard all changes"
+    }
   },
-  style: {},
+  style: {}
 };
+exports.defaultProps = defaultProps;
